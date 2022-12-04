@@ -11,12 +11,14 @@
 
     <EditText
         android:id="@+id/price"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Cost Or Total Price"
+        android:hint="@string/cost_or_total_price"
+        android:autofillHints="Cost Or Total Price"
         android:minHeight="48dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        android:inputType="number">
 
     </EditText>
 
@@ -26,62 +28,74 @@
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/price"
-            android:text="Select VAT Percentage: "
+            android:text="@string/select_vat_percentage"
             android:layout_marginTop="15dp">
 
         </TextView>
 
         <RadioGroup
-            android:id="@+id/radio"
-            android:checkedButton="@id/ten"
+            android:id="@+id/rgRadio"
+            android:checkedButton="@id/rdTen"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/vat">
 
             <RadioButton
-                android:id="@+id/ten"
+                android:id="@+id/rdTen"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="10%">
+                android:text="@string/_10">
             </RadioButton>
 
             <RadioButton
-                android:id="@+id/fiften"
+                android:id="@+id/rdFifteen"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="15%">
+                android:text="@string/_15">
             </RadioButton>
 
             <RadioButton
-                android:id="@+id/twenty"
+                android:id="@+id/rdTwenty"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="20%">
+                android:text="@string/_20">
             </RadioButton>
 
         </RadioGroup>
 
-    <Switch
-        android:id="@+id/round"
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/swRound"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:minHeight="48dp"
-        android:text="Round Up Total??"
+        android:text="@string/round_up_total"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radio"></Switch>
+        app:layout_constraintTop_toBottomOf="@+id/rgRadio">
+
+    </com.google.android.material.switchmaterial.SwitchMaterial>
 
         <Button
+            android:id="@+id/btnCalc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/round"
+            app:layout_constraintTop_toBottomOf="@+id/swRound"
             app:layout_constraintEnd_toEndOf="parent"
-            android:text="Calculate VAT"
+            android:text="@string/calculate_vat"
             android:layout_marginTop="5dp">
 
         </Button>
 
+    <TextView
+        android:id="@+id/total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnCalc"
+        tools:text="@string/total_price">
+
+    </TextView>
 
 
 
